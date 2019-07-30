@@ -15,8 +15,8 @@ class Gradebook extends Model
         'name' => 'required|min:1'
     ];
 
-    // public function professor()
-    // {
-    //     return $this->belongsTo(Professor::class);
-    // }
+    public function professor()
+    {
+        return $this->belongsTo(Professor::class);
+    }
 }

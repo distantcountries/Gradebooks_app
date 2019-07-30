@@ -12,7 +12,7 @@ class CreateGradebooksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
 
-            $table->unsignedBigInteger('professor_id')->nullable();
+            $table->unsignedBigInteger('professor_id')->unsigned()->nullable();
             $table->foreign('professor_id')
                 ->references('id')->on('professors')
                 ->onDelete('cascade');

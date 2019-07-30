@@ -11,8 +11,8 @@ class Professor extends Model
         'firstName', 'lastName', 'email', 'image'
     ];
     
-    // public function gradebook()
-    // {
-    //     return $this->hasOne(Gradebook::class);
-    // }
+    public function gradebook()
+    {
+        return $this->hasOne(Gradebook::class);
+    }
 }

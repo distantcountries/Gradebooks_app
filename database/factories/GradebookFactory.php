@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Gradebook::class, function (Faker $faker) {
     return [
         'name' => $faker->text(20),
-        'professor_id' => $faker->unique()->numberBetween(0, 10)
+        'professor_id' => $faker->unique()->numberBetween(1, 30)
     ];
 });

@@ -9,7 +9,7 @@ class ProfessorsController extends Controller
 {
     public function index()
     {
-        return Professor::with('professor')->get();
+        return Professor::all();
     }
 
     public function store(Request $request)

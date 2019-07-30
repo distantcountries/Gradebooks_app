@@ -9,7 +9,7 @@ class GradebooksController extends Controller
 {
     public function index()
     {
-        return Gradebook::all();
+        return Gradebook::with('professor')->get();
     }
 
     public function store(Request $request)

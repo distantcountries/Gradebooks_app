@@ -11,6 +11,6 @@ class GradebooksTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Gradebook::class, 10)->create();
+        factory(App\Gradebook::class, 30)->create();
     }
 }
