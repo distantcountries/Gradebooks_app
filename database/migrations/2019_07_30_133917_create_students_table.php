@@ -12,12 +12,12 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('image');
+            $table->string('image')->nullable();
 
-            $table->unsignedBigInteger('gradebook_id');
-            $table->foreign('gradebook_id')
-                ->references('id')->on('gradebooks')
-                ->onDelete('cascade');
+            // $table->unsignedBigInteger('gradebook_id');
+            // $table->foreign('gradebook_id')
+            //     ->references('id')->on('gradebooks')
+            //     ->onDelete('cascade');
                 
             $table->timestamps();
         });

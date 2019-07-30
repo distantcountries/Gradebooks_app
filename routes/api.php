@@ -21,4 +21,5 @@ Route::post('/login', 'Auth\LoginController@authenticate');
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::resource('gradebooks', 'GradebooksController');
-// Route::get('/gradebooks', 'GradebooksController@index');
+Route::resource('professors', 'ProfessorsController');
+

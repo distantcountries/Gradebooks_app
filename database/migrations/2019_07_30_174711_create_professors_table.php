@@ -6,23 +6,28 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProfessorsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('professors', function (Blueprint $table) {
-            $table->bigIncrements('id'); //proveriti da li je professor zapravo user
+            $table->bigIncrements('id');
             $table->string('firstName');
             $table->string('lastName');
-            $table->string('image');
-
-            $table->unsignedBigInteger('gradebook_id');
-            $table->foreign('gradebook_id')
-                ->references('id')->on('gradebooks')
-                ->onDelete('cascade');
-
+            $table->string('email')->unique();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         Schema::dropIfExists('professors');
