@@ -15,14 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('image')->nullable();
             $table->rememberToken();
-
-            // $table->unsignedBigInteger('gradebook_id');
-            // $table->foreign('gradebook_id')
-            //     ->references('id')->on('gradebooks')
-            //     ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

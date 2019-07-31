@@ -9,6 +9,6 @@ $factory->define(Student::class, function (Faker $faker) {
     return [
         'firstName' => $faker->firstName,
         'lastName' => $faker->lastName,
-        'image' => $faker->imageUrl()
+        'gradebook_id' => $faker->numberBetween(1, 30)
     ];
 });

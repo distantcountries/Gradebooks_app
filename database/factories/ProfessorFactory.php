@@ -11,7 +11,6 @@ $factory->define(Professor::class, function (Faker $faker) {
         'firstName' => $faker->firstName,
         'lastName' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'image' => $faker->imageUrl()
     ];
 });
 

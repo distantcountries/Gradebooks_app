@@ -8,15 +8,20 @@ use App\Professor;
 class Gradebook extends Model
 {
     protected $fillable = [
-        'name', 'professor_id'
+        'name', 'user_id'
     ];
 
     const STORE_RULES = [
         'name' => 'required|min:1'
     ];
 
-    public function professor()
+    public function user()
     {
-        return $this->belongsTo(Professor::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
     }
 }
