@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return User::all();
+        return User::with(['gradebook', 'images'])->get();
     }
 
     public function store(Request $request)
@@ -21,7 +21,7 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return User::with('gradebook')->find($id);
+        return User::with(['gradebook', 'images'])->find($id);
     }
 
     public function update(Request $request, $id)

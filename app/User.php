@@ -11,7 +11,7 @@ class User extends Authenticatable implements JWTSubject
     use Notifiable;
 
     protected $fillable = [
-        'firstName', 'lastName', 'email', 'password', 
+        'firstName', 'lastName', 'email', 'password'
     ];
 
 
@@ -32,6 +32,11 @@ class User extends Authenticatable implements JWTSubject
     public function gradebook()
     {
         return $this->hasOne(Gradebook::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(UserImage::class);
     }
 }
 

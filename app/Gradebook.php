@@ -9,6 +9,7 @@ class Gradebook extends Model
 {
     protected $fillable = [
         'name', 'user_id'
+   
     ];
 
     const STORE_RULES = [
@@ -17,7 +18,7 @@ class Gradebook extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function students()

@@ -27,7 +27,7 @@ class GradebooksController extends Controller
 
     public function show($id)
     {
-        $gradebook = Gradebook::with(['user', 'students'])->find($id);
+        $gradebook = Gradebook::with(['user', 'students'])->findOrFail($id);
         return $gradebook;
     }
 
