@@ -21,7 +21,7 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        return User::with(['gradebook', 'images'])->find($id);
+        return User::with(['gradebook.students', 'images'])->find($id);
     }
 
     public function update(Request $request, $id)

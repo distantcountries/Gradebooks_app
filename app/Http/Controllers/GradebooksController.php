@@ -13,16 +13,13 @@ class GradebooksController extends Controller
         return Gradebook::with(['user', 'students'])->get();
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         // $this->validate(request(), Gradebook::STORE_RULES);
 
-        $user = User::find($id);
         $gradebook = new Gradebook();
         $gradebook->name = $request->input('name');
-        
-        $gradebook->user_id = $user->id;
-
+        $gradebook->user_id = $request->input('user_id');
         $gradebook->save();
 
         return $gradebook;
