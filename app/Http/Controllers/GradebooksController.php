@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gradebook;
+use App\User;
 
 class GradebooksController extends Controller
 {
@@ -12,12 +13,15 @@ class GradebooksController extends Controller
         return Gradebook::with(['user', 'students'])->get();
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $this->validate(request(), Gradebook::STORE_RULES);
+        // $this->validate(request(), Gradebook::STORE_RULES);
 
+        $user = User::find($id);
         $gradebook = new Gradebook();
         $gradebook->name = $request->input('name');
+        
+        $gradebook->user_id = $user->id;
 
         $gradebook->save();
 
