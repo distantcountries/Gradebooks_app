@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Gradebook;
 
 class UsersController extends Controller
 {
@@ -12,9 +13,18 @@ class UsersController extends Controller
         return User::with(['gradebook', 'images'])->get();
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         // $this->validate(request(), User::STORE_RULES);
+        $user = new User();
+        $user->firstName = $request->input('firstName');
+        $user->lastName = $request->input('lastName');
+        $user->images->image = $request->input('image');
+        $user->gradebook->name = $request->input('name');
+        
+        $user->save();
+        return $user;
+
 
         return User::create($request->all());
     }

@@ -28,7 +28,6 @@ class LoginController extends Controller
         }
 
         return response()->json(compact('token'));
-        // compact token kao da smo napisali 'token' => $token
 
         // return response()->json(
         //     [
