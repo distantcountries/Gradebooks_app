@@ -17,11 +17,16 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
+
 Route::post('/login', 'Auth\LoginController@authenticate');
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::resource('gradebooks', 'GradebooksController');
 Route::resource('users', 'UsersController');
 Route::resource('comments', 'CommentsController');
+
+
+// Route::middleware('jwt')->get('/gradebooks', 'GradebooksController@index');
+
 
 
