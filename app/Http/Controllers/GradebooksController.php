@@ -15,7 +15,7 @@ class GradebooksController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate(request(), Gradebook::STORE_RULES);
+        $this->validate(request(), Gradebook::STORE_RULES);
 
         $gradebook = new Gradebook();
         $gradebook->name = $request->input('name');
@@ -28,7 +28,7 @@ class GradebooksController extends Controller
 
     public function show($id)
     {
-        $gradebook = Gradebook::with(['user', 'students'])->findOrFail($id);
+        $gradebook = Gradebook::with(['user', 'students', 'comments.user'])->findOrFail($id);
         return $gradebook;
     }
 

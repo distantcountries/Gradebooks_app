@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Comment::class, function (Faker $faker) {
     return [
-        'content' => $faker->text(50),
+        'content' => $faker->text(255),
+        'user_id' => $faker->numberBetween(1, 30),
+        'gradebook_id' => $faker->numberBetween(1, 30)
     ];
 });

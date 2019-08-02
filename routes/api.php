@@ -22,4 +22,6 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::resource('gradebooks', 'GradebooksController');
 Route::resource('users', 'UsersController');
+Route::resource('comments', 'CommentsController');
+
 

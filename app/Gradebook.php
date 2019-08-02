@@ -13,7 +13,7 @@ class Gradebook extends Model
     ];
 
     const STORE_RULES = [
-        'name' => 'required|min:1'
+        'name' => 'required|min:2|max:255'
     ];
 
     public function user()
@@ -24,5 +24,10 @@ class Gradebook extends Model
     public function students()
     {
         return $this->hasMany(Student::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

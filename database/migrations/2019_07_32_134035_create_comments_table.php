@@ -12,15 +12,15 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->text('content');
 
-            // $table->unsignedBigInteger('user_id'); 
-            // $table->foreign('user_id')
-            //     ->references('id')->on('users')
-            //     ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id'); 
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
 
-            // $table->unsignedBigInteger('gradebook_id');
-            // $table->foreign('gradebook_id')
-            //     ->references('id')->on('gradebooks')
-            //     ->onDelete('cascade');
+            $table->unsignedBigInteger('gradebook_id');
+            $table->foreign('gradebook_id')
+                ->references('id')->on('gradebooks')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
