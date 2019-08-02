@@ -4,27 +4,22 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Gradebook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
-    public function store(Request $request, $gradebook_id)
+    public function store(Request $request)
     {
-        $this->validate(request(), Comment::STORE_RULES);
-
-        $gradebook = Gradebook::find($gradebook_id);
-
+        $commentRequest = request('comment');
+        // $this->validate(request(), Comment::STORE_RULES);
+        
         $comment = new Comment;
-        $comment->content = request('content');
+        $comment->content = $commentRequest['content'];
+        $comment->gradebook_id = (int)request('gradebook_id');
+        $comment->user_id = (int)request('user_id');
 
-        if(!auth()->user()){
-            return back();
-        }
-
-        $comment->user_id = auth()->user()->id;
-        $comment->gradebook_id = $gradebook_id;
         $comment->save();
-
-        // return back();
+        
         return $comment;
     }
 }

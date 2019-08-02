@@ -21,12 +21,14 @@ use Illuminate\Http\Request;
 Route::post('/login', 'Auth\LoginController@authenticate');
 Route::post('/register', 'Auth\RegisterController@register');
 
-Route::resource('gradebooks', 'GradebooksController');
-Route::resource('users', 'UsersController');
-Route::resource('comments', 'CommentsController');
+// Route::resource('gradebooks', 'GradebooksController');
+// Route::resource('users', 'UsersController');
+// Route::resource('comments', 'CommentsController');
 
 
-// Route::middleware('jwt')->get('/gradebooks', 'GradebooksController@index');
 
 
+Route::middleware('jwt')->resource('gradebooks', 'GradebooksController');
+Route::middleware('jwt')->resource('users', 'UsersController');
+Route::middleware('jwt')->resource('comments', 'CommentsController');
 

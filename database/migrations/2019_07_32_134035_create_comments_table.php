@@ -10,7 +10,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('content');
+            $table->text('content')->nullable();
 
             $table->unsignedBigInteger('user_id'); 
             $table->foreign('user_id')

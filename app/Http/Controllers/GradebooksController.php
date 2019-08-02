@@ -42,7 +42,8 @@ class GradebooksController extends Controller
 
     public function destroy($id)
     {
-        Gradebook::destroy($id);
+        // Gradebook::destroy($id);
+        Gradebook::find($id)->delete();
         return response()->json('Gradebook is deleted!');
     }
 }

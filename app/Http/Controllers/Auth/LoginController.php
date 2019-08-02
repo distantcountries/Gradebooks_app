@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request; //zadatak 4
-use Tymon\JWTAuth\Exceptions\JWTException; //zadatak 4
+use Illuminate\Http\Request;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
-//zadatak 4
 class LoginController extends Controller
 {
 
@@ -27,14 +26,14 @@ class LoginController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        // return response()->json(compact('token'));
 
-        // return response()->json(
-        //     [
-        //     'token' => $token,
-        //     'user' => auth()->user()
-        //     ]
-        // );
+        return response()->json(
+            [
+            'token' => $token,
+            'user' => auth()->user()
+            ]
+        );
     }
 }
 

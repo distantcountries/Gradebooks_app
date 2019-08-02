@@ -11,7 +11,7 @@ class Comment extends Model
     ];
 
     const STORE_RULES = [
-        'brand' => 'required|min:1|max:1000',
+        'content' => 'required|min:1|max:1000'
     ];
 
     public function gradebook()
