@@ -13,22 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-
 Route::post('/login', 'Auth\LoginController@authenticate');
 Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/gradebooks', 'GradebooksController@index');
 
-// Route::resource('gradebooks', 'GradebooksController');
-// Route::resource('users', 'UsersController');
-// Route::resource('comments', 'CommentsController');
-
-
-
-
-Route::middleware('jwt')->resource('gradebooks', 'GradebooksController');
+Route::middleware('jwt')->post('/gradebooks', 'GradebooksController@store');
+Route::get('/gradebooks/{id}', 'GradebooksController@show');
+Route::middleware('jwt')->delete('/gradebooks/{id}', 'GradebooksController@destroy');
 Route::middleware('jwt')->resource('users', 'UsersController');
 Route::middleware('jwt')->resource('comments', 'CommentsController');
-

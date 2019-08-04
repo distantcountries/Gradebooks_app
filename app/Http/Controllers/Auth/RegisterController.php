@@ -47,4 +47,6 @@ class RegisterController extends Controller
             $this->create($user);
         }
     }
+
+    
 }
