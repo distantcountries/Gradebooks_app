@@ -16,9 +16,8 @@ use Illuminate\Http\Request;
 Route::post('/login', 'Auth\LoginController@authenticate');
 Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/gradebooks', 'GradebooksController@index');
-
 Route::middleware('jwt')->post('/gradebooks', 'GradebooksController@store');
 Route::get('/gradebooks/{id}', 'GradebooksController@show');
 Route::middleware('jwt')->delete('/gradebooks/{id}', 'GradebooksController@destroy');
-Route::middleware('jwt')->resource('users', 'UsersController');
+Route::resource('users', 'UsersController');
 Route::middleware('jwt')->resource('comments', 'CommentsController');
