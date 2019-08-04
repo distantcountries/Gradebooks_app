@@ -12,6 +12,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('firstName');
             $table->string('lastName');
+            $table->string('image')->nullable();
 
             $table->unsignedBigInteger('gradebook_id')->unsigned()->nullable();
             $table->foreign('gradebook_id')

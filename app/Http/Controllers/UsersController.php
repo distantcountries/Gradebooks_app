@@ -16,18 +16,24 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate(request(), User::STORE_RULES);
+        $this->validate(request(), User::STORE_RULES);
         \Log::info($request->input('image'));
-        $userImage = new UserImage();
-        $userImage->user_id = $request->input('user_id');
-        $userImage->image = $request->input('image');
-        $userImage->save();
-
         $user = new User();
         $user->firstName = $request->input('firstName');
         $user->lastName = $request->input('lastName');
-        
+        $user = $request->input('email', 'placeholder.email@gmail.com');
+        $user->password = null;
+
+        $gradebook = Gradebook::find($request->input('gradebook_id'));
+        $gradebook->user_id = $user->id;
+
+        $userImage = new UserImage();
+        $userImage->user_id = $professor->id;
+        $userImage->image = $request->input('image');
+        $userImage->save();
+    
         $user->save();
+        
         return $user;
 
     }
